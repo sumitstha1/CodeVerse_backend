@@ -5,7 +5,8 @@ from rest_framework import status
 from .models import *
 from .serializers import *
 
-# Create your views here.
+
+
 class ProfileApiView(APIView):
     def get_obj(self, slug):
         try:
@@ -23,6 +24,7 @@ class ProfileApiView(APIView):
         profile_obj = Profile.objects.all()
         serializer = ProfileSerializer(profile_obj, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
     
 class NewsletterApiView(APIView):
     def post(self, request):

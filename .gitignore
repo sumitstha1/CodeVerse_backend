@@ -11,3 +11,7 @@ env/
 # Database
 
 db.sqlite3
+
+# media and static
+
+media/
