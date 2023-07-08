@@ -3,14 +3,24 @@ from django.contrib.admin import register
 from .models import *
 
 # Register your models here.
+class BlogMetaInline(admin.StackedInline):
+    model = BlogMetaTags
+
+class ServiceMetaInline(admin.StackedInline):
+    model = ServiceMetaTags
+
 @register(Service)
 class ServiceAdmin(admin.ModelAdmin):
-    pass
+    inlines = [ServiceMetaInline]
+    list_display = ["title", "slug", "order"]
+    ordering = ["order"]
 
 @register(Blog)
 class BlogAdmin(admin.ModelAdmin):
-    pass
+    inlines = (BlogMetaInline,)
+    # pass
 
 @register(BlogSection)
 class BlogSectionAdmin(admin.ModelAdmin):
-    pass
+   list_display = ["blog", "order"]
+   ordering = ['order']

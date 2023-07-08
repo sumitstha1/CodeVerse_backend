@@ -20,3 +20,15 @@ class NewsletterSerializer(serializers.ModelSerializer):
             "email"
         ]
         model = Newsletter
+
+class AboutSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        fields = "__all__"
+        model = About
+
+class OurValueSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        fields = "__all__"
+        model = OurValue

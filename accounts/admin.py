@@ -9,8 +9,17 @@ class ProfileAdmin(admin.ModelAdmin):
 
 @register(SocialHandles)
 class SocialHandlesAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["name", "url"]
 
 @register(Newsletter)
 class NewsletterAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["email"]
+
+@register(About)
+class AboutAdmin(admin.ModelAdmin):
+    list_display = ["slug"]
+
+@register(OurValue)
+class OurValueAdmin(admin.ModelAdmin):
+    list_display = ["title", "slug", "order"]
+    ordering = ["order"]

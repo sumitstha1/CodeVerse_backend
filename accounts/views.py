@@ -25,7 +25,6 @@ class ProfileApiView(APIView):
         serializer = ProfileSerializer(profile_obj, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
-    
 class NewsletterApiView(APIView):
     def post(self, request):
         serializer = NewsletterSerializer(data=request.data)
@@ -33,3 +32,15 @@ class NewsletterApiView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+class AboutApiView(APIView):
+    def get(self, request):
+        about_obj = About.objects.all()
+        serializer = AboutSerializer(about_obj, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+class OurValueApiView(APIView):
+    def get(self, request):
+        our_value_obj = OurValue.objects.all().order_by("order")
+        serializer = OurValueSerializer(our_value_obj, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)

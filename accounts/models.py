@@ -24,3 +24,16 @@ class SocialHandles(BaseModel):
 class Newsletter(BaseModel):
     email = models.EmailField(unique=True)
 
+class About(BaseModel):
+    content = models.TextField()
+    slug = models.SlugField(unique=True)
+
+class OurValue(BaseModel):
+    title = models.CharField(max_length=255)
+    content = models.TextField()
+    slug = models.SlugField(unique=True, null=True, blank=True)
+    order = models.IntegerField(unique=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(OurValue, self).save(*args, **kwargs)

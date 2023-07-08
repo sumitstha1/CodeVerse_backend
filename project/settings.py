@@ -27,9 +27,9 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG")
 
-ALLOWED_HOSTS = [config("ALLOWED_HOST")]
+ALLOWED_HOSTS = ['*']
 
-CORS_ORIGIN_ALLOW_ALL = bool(config("CORS_ORIGIN_ALLOW_ALL"))
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "ckeditor",
     "corsheaders",
     "accounts",
     "clients",
