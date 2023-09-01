@@ -23,3 +23,13 @@ class AboutAdmin(admin.ModelAdmin):
 class OurValueAdmin(admin.ModelAdmin):
     list_display = ["title", "slug", "order"]
     ordering = ["order"]
+
+@register(Portfolio)
+class OurValueAdmin(admin.ModelAdmin):
+    list_display = ["title"]
+    ordering = ["updated_at"]
+
+@register(Testimonial)
+class OurValueAdmin(admin.ModelAdmin):
+    list_display = ["name"]
+    ordering = ["updated_at"]

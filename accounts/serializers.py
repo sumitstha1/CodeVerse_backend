@@ -32,3 +32,30 @@ class OurValueSerializer(serializers.ModelSerializer):
     class Meta:
         fields = "__all__"
         model = OurValue
+
+class TestimonialSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        fields = [
+            "uid",
+            "created_at",
+            "updated_at",
+            "image",
+            "name",
+            "role",
+            "content"
+        ]
+        model = Testimonial
+
+class PortfolioSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        fields = [
+            "uid",
+            "created_at",
+            "updated_at",
+            "image",
+            "title",
+            "link"
+        ]
+        model = Portfolio

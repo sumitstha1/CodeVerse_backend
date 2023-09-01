@@ -7,4 +7,6 @@ urlpatterns = [
     path("newsletter/", NewsletterApiView.as_view()),
     path("about/", AboutApiView.as_view()),
     path("ourvalue/", OurValueApiView.as_view()),
+    path("testimonial/", TestimonialApiView.as_view()),
+    path("portfolio/", PortfolioApiView.as_view()),
 ]

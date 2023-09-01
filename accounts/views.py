@@ -44,3 +44,15 @@ class OurValueApiView(APIView):
         our_value_obj = OurValue.objects.all().order_by("order")
         serializer = OurValueSerializer(our_value_obj, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
+class TestimonialApiView(APIView):
+    def get(self, request):
+        testimonial_obj = Testimonial.objects.prefetch_related("image", "name", "role", "content").all().order_by("updated_at")
+        serializer = TestimonialSerializer(testimonial_obj, many = True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+class PortfolioApiView(APIView):
+    def get(self, request):
+        portfolio_obj = Portfolio.objects.prefetch_related("image", "title", "link").all().order_by("updated_at")
+        serializer = PortfolioSerializer(portfolio_obj, many = True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
